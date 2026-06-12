@@ -43,3 +43,12 @@ Removed in favor of auto memory for project-specific context.
 - [x] Update commands/reflect.md — effectiveness scoring system
 - [x] Update claude-md-snippet.md — violation nudge
 - [x] Update README.md
+
+## Phase 4: Rules via /instill (F9)
+- [x] Create working-memory/templates/rules.md
+- [x] Create commands/instill.md — capture + inject managed block into project CLAUDE.md
+- [x] Update commands/reflect.md — read rules.md, promotion detection, rule health
+- [x] Update commands/distill.md — rules.md in universal promotion file set
+- [x] Update claude-md-snippet.md — Required Reading + routing + /instill nudge
+- [x] Update update.sh — rules.md Required Reading nudge for existing installs
+- [x] Update README.md — /instill section, tree, rules vs preferences

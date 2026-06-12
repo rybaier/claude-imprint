@@ -38,12 +38,14 @@ Claude Code loads `.md` files from `~/.claude/commands/` as slash commands, and 
 ~/.claude/
 ├── commands/
 │   ├── imprint.md       # /imprint command
+│   ├── instill.md       # /instill command
 │   ├── reflect.md       # /reflect command
 │   └── distill.md       # /distill command
 ├── working-memory/
 │   ├── profile.md               # How you work
 │   ├── collaboration-patterns.md  # How you and Claude work together
 │   ├── boundaries.md            # What stays separate
+│   ├── rules.md                 # Hard rules — always/never constraints
 │   ├── tools.md                 # Preferred tools and environment
 │   ├── anti-patterns.md         # Mistakes to avoid
 │   └── team/
@@ -84,6 +86,33 @@ Proposed update:
 
 Apply this entry? (y/n)
 ```
+
+### Hard rules: `/instill`
+
+`/imprint` captures **preferences** — soft, observed tendencies ("you tend to commit
+phase-by-phase"). `/instill` captures **rules** — hard constraints you've decided on, the
+always/nevers ("never touch unrelated code," "ask before assuming"). Different kind of thing:
+preferences are watched and inferred; rules are stated and enforced.
+
+Your rules live in `~/.claude/working-memory/rules.md` (private, loaded every session, so
+they're always active for you). `/instill` then *publishes* them into a project:
+
+```
+/instill never touch unrelated code
+
+  Proposed rule -> rules.md (Code Changes): "Do not touch unrelated code..."   [approve]
+  Instill rules into /path/to/repo/CLAUDE.md?                                   [approve]
+```
+
+It writes a managed `BEGIN/END claude-imprint rules` block into the project's `CLAUDE.md`,
+so the rules travel with the repo — visible to collaborators, CI, and your other machines.
+Re-running is idempotent (the block is replaced, never duplicated). Run `/instill` with no
+argument to inject existing rules without adding a new one. Nothing is written without your
+approval.
+
+When a preference you keep restating has really become a rule, `/reflect` will offer to
+promote it from `profile.md` into `rules.md`, and `/distill` syncs your rules across machines
+like everything else.
 
 ### After a few weeks: `/reflect`
 

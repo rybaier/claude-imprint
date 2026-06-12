@@ -59,6 +59,16 @@ if [ -f "$CLAUDE_MD" ] && ! grep -q "imprint-count-since-reflect" "$CLAUDE_MD" 2
   echo "  /imprint and /reflect will manage it automatically."
 fi
 
+# Check for the rules.md Required Reading line (new /instill feature)
+if [ -f "$CLAUDE_MD" ] && grep -q "BEGIN claude-imprint" "$CLAUDE_MD" 2>/dev/null && ! grep -q "working-memory/rules.md" "$CLAUDE_MD" 2>/dev/null; then
+  echo ""
+  echo "  New: /instill manages hard rules (always/never constraints) in rules.md."
+  echo "  Add this to your CLAUDE.md Required Reading list so rules load each session:"
+  echo "    - \`~/.claude/working-memory/rules.md\` — Hard rules: always/never constraints (if it exists)"
+  echo ""
+  echo "  Then run /instill to capture a rule and publish your rules into a project."
+fi
+
 # Never touch existing working memory files — those are personal data
 # Never touch CLAUDE.md — that was a one-time install step
 

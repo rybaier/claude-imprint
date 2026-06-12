@@ -86,7 +86,9 @@ If `~/.claude/imprinted-memories/` does not exist:
 
 8. **Apply** — Write approved changes to `universal/` files. Use the same file and section
    structure as the working memory templates (profile.md, collaboration-patterns.md,
-   boundaries.md, tools.md, anti-patterns.md). Stage, commit with message "distill: promote universals YYYY-MM-DD",
+   boundaries.md, rules.md, tools.md, anti-patterns.md). Rules promote like any other
+   pattern: a rule present in `rules.md` on 2+ machines becomes a universal rule in
+   `universal/rules.md`. Stage, commit with message "distill: promote universals YYYY-MM-DD",
    and push.
 
 9. **Offer to seed local** — Ask if the user wants to merge any universal patterns that

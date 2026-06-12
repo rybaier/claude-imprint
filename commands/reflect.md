@@ -6,6 +6,7 @@ Review working memory files and provide a health check on the accumulated learni
    - `~/.claude/working-memory/profile.md`
    - `~/.claude/working-memory/collaboration-patterns.md`
    - `~/.claude/working-memory/boundaries.md`
+   - `~/.claude/working-memory/rules.md` (if it exists)
    - `~/.claude/working-memory/tools.md` (if it exists)
    - `~/.claude/working-memory/anti-patterns.md` (if it exists)
    - `~/.claude/working-memory/team/team-patterns.md` (if it exists)
@@ -30,6 +31,13 @@ Review working memory files and provide a health check on the accumulated learni
    - **Vague entries**: Entries too generic to change behavior (e.g., "write clean code") —
      propose sharpening or removing
    - **Gaps**: Sections with few or no entries that could benefit from attention
+   - **Rule promotion**: Preferences in `profile.md` / `collaboration-patterns.md` that have
+     hardened into always/never constraints — reinforced repeatedly, or corrected 2+ times in
+     `session-log.md`. Propose promoting these to `rules.md` (use the `promote` action below).
+     A hardened preference is a rule the user keeps having to restate; moving it to `rules.md`
+     lets `/instill` carry it into projects.
+   - **Rule health** (`rules.md`, if it exists): duplicate rules, rules that contradict each
+     other or a preference, and rules violated in the current session.
 
 5. **Effectiveness scoring** (if in an active session with history):
 
